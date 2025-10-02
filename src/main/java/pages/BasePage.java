@@ -2,6 +2,7 @@ package pages;
 
 import config.DriverManager;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,14 +23,12 @@ public class BasePage {
         this.driver = DriverManager.getDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT));
     }
-
     //Finds a web element by locator, waiting for its presence.
     public WebElement findElement(By locator) {
         //Waiting for the element to be present
         waitForElementToBePresent(locator);
         return driver.findElement(locator);
     }
-
     /**
      * Finds a list of web elements by locator, waiting for their presence.
      * @param locator By locator
@@ -39,7 +38,6 @@ public class BasePage {
         waitForElementToBePresent(locator);
         return driver.findElements(locator);
     }
-
     /**
      * Clicks on a web element found by locator, waiting for its presence.
      * @param locator By locator
@@ -48,7 +46,6 @@ public class BasePage {
         waitForElementToBePresent(locator);
         driver.findElement(locator).click();
     }
-
     /**
      * Scrolls to a web element by locator and clicks it using JavaScript.
      * @param locator By locator
@@ -66,6 +63,14 @@ public class BasePage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView()",element);
         js.executeScript("arguments[0].click()",element);
+    }
+
+    public void scrollIntoViewAndClickAlert(By locator){
+        waitForElementToBeClickable(locator);
+        WebElement element = findElement(locator);
+        System.out.println("Clicking button: " + element.getText()); // ← antes del click
+        scrollIntoView(element);
+        new Actions(driver).moveToElement(element).click().perform(); // ← click real
     }
 
     /**
@@ -87,7 +92,6 @@ public class BasePage {
     public String getText(By locator) {
         return driver.findElement(locator).getText();
     }
-
     /**
      * Gets the text of a given web element.
      * @param element WebElement
@@ -135,8 +139,6 @@ public class BasePage {
     public void waitForElementToBeClickable(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
-
-
 
     public void waitForNewWindow(){
         wait.until((ExpectedCondition <Boolean>)
@@ -193,7 +195,6 @@ public class BasePage {
         js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
     }
 
-
 //Scroll to the bottom of the page
 
     public void scrollToTop(){
@@ -219,7 +220,6 @@ public class BasePage {
                 driver.switchTo().window(handle);
         }
     }
-
     // Select a checkbox if not already selected
     public void selectCheckbox(By locator) {
         try {
@@ -232,7 +232,6 @@ public class BasePage {
         } catch (Exception e) {
             throw new RuntimeException("Failed to select checkbox: " + e.getMessage(), e);
         }
-
     }
 
     public void waitForAlertToBePresent(){
@@ -247,6 +246,7 @@ public class BasePage {
         Alert alert = driver.switchTo().alert();
         alert.accept();
     }
+
     //Dismiss the alert
     public void dismissAlert(){
         waitForAlertToBePresent();
@@ -278,6 +278,20 @@ public class BasePage {
         } catch (TimeoutException e) {
             return false;
         }
+    }
+
+    public void triggerAlert (By locator){
+        scrollIntoViewAndClickAlert(locator);
+    }
+
+    public void ClickAcceptAlert(By locator){
+        triggerAlert(locator);
+        acceptAlert();
+    }
+
+    public void ClickDismissAlert(By locator){
+        triggerAlert(locator);
+        dismissAlert();
     }
 
 

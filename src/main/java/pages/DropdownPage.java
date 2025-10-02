@@ -13,14 +13,14 @@ public class DropdownPage extends BasePage{
 
     public DropdownPage() {
     }
-            private By DropdownPage_Locator = By.id("dropdown");
+    private By DropdownPage_Locator = By.id("dropdown");
 
 
 public void selectFromDropDown(String option){
-
     Select dropdownElement = findDropDownElement();
     dropdownElement.selectByVisibleText(option);
 }
+
 
 public List<String> getSelectedOption(){
     List<WebElement> dropElement = findDropDownElement().getAllSelectedOptions();
