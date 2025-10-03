@@ -21,10 +21,9 @@ import org.slf4j.LoggerFactory;
     private By hoverOver_home_Locator = By.xpath("//div[@id='content']//a[contains(@href,'hovers')]");
     private By key_presses_home_Locator = By.xpath("//div[@id='content']//a[contains(@href,'key_presses')]");
     private By jsAlerts_home_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/javascript_alerts')]");
-    private By getJsAlerts_Btn_Locator = By.xpath("//button[contains(text(),'Click for JS Alert')]");
-    private By getJsAlertsToConfirm_Btn_Locator = By.xpath("//button[contains(text(),'Click for JS Confirm')]");
-    /*
-    *
+    private By AddRemoveElements_home_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/add_remove_elements/')]");
+
+    /**
      * Clicks in the link DropDown Page
      */
     public DropdownPage ClickOnDropDown() {
@@ -50,20 +49,22 @@ import org.slf4j.LoggerFactory;
         return new KeyPressesPage();
     }
     /**
-     * Clicks in the link KeyPresses
+     * Clicks in the link AlertsJS
      */
     public AlertsPage ClickOnAlertsJS() {
         waitForElementToBePresent(jsAlerts_home_Locator);
         driver.findElement(jsAlerts_home_Locator).click();
-        waitForElementToBePresent(getJsAlerts_Btn_Locator);
         return new AlertsPage();
     }
 
-    public AlertsPage ClickOnAlertsJSConfirm() {
-        waitForElementToBePresent(jsAlerts_home_Locator);
-        driver.findElement(jsAlerts_home_Locator).click();
-        waitForElementToBePresent(getJsAlertsToConfirm_Btn_Locator);
-        return new AlertsPage();
+    /**
+     * Clicks in the link Click Add and Remove Elements
+     */
+    public AddRemoveElementsPage ClickOnAddRemoveElements() {
+        waitForElementToBePresent(AddRemoveElements_home_Locator);
+        driver.findElement(AddRemoveElements_home_Locator).click();
+        return new AddRemoveElementsPage();
     }
+
     }
 

@@ -269,7 +269,6 @@ public class BasePage {
         return alert.getText();
     }
 
-
     public boolean isElementVisible(By locator) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
