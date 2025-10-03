@@ -1,4 +1,3 @@
-#### 🧪 UI Automation – The Internet Herokuapp
 #### UI Test Automation Project
 #### 📖 Overview
 This project automates functional UI tests on [The Internet](https://the-internet.herokuapp.com/) using **Selenium WebDriver with Java**.
@@ -13,13 +12,11 @@ This project automates functional UI tests on [The Internet](https://the-interne
 - **Recommended IDE:** IntelliJ IDEA Community Edition 2025.1.3  
 ---
 ### ⚡ Getting Started
-
 1. Clone the repository:
    ```bash
    git clone https://github.com/tu-usuario/ui-automation-internet.git
    
 #### ✅ Implemented Tests
-
 #### 🔔 JavaScript Alerts
 - **Accept simple alerts**  
 - Confirm alerts
@@ -29,6 +26,11 @@ This project automates functional UI tests on [The Internet](https://the-interne
 - Dropdowns  
 - Hovers  
 - Key Presses
+
+📁 Project Structure
+This project follows a modular and scalable layout to support maintainable Selenium WebDriver automation.
+✅ This structure promotes clarity, separation of concerns, and long-term maintainability for collaborative automation projects.
+
 
 #### 📈 Reporting
 Test results are captured using **ExtentReports** and include:
