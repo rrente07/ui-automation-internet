@@ -59,9 +59,8 @@ static AddRemoveElementsPage addRemoveElementsPage;
         logger.info("Buttons to delete: {}", beforeDelete);
 
         int afterDelete = addRemoveElementsPage.removeDeleteButtons(beforeDelete);
+        Assertions.assertEquals(beforeDelete, afterDelete, "We do not adding buttons correctly");
 
-        Assertions.assertEquals(beforeDelete, afterDelete, "We do not add buttons correctly");
-        Assertions.assertEquals(beforeDelete, beforeDelete, "We do not add buttons correctly");
     }
 
 }
