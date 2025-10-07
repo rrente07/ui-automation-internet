@@ -1,6 +1,7 @@
 package test;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +22,7 @@ public class HoverTest extends BaseTest{
     }
 
 @Test
+@DisplayName("Verify Hover Over")
     public void testHoverUser1(){
     var hoverPage = homePage.ClickOnHover();
     var caption = hoverPage.hoverOverFigure(2);

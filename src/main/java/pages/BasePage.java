@@ -1,12 +1,15 @@
 package pages;
 
 import config.DriverManager;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.Set;
@@ -293,6 +296,19 @@ public class BasePage {
         dismissAlert();
     }
 
+    public File getCanvasScreenshot(By locator, String name) {
+        File screen = null;
+        try {
+            WebElement canvas = driver.findElement(locator);
+            File screenshot = canvas.getScreenshotAs(OutputType.FILE);
+            screen = new File(name + ".png");
+            FileUtils.copyFile(screenshot, screen);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return screen;
+    }}
 
-}
+
+
 

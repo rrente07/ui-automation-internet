@@ -22,8 +22,10 @@ import org.slf4j.LoggerFactory;
     private By key_presses_home_Locator = By.xpath("//div[@id='content']//a[contains(@href,'key_presses')]");
     private By jsAlerts_home_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/javascript_alerts')]");
     private By AddRemoveElements_home_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/add_remove_elements/')]");
+    private By ImageBroken_home_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/broken_images')]");
+    private By ChalllengDom_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/challenging_dom')]");
 
-    /**
+   /**
      * Clicks in the link DropDown Page
      */
     public DropdownPage ClickOnDropDown() {
@@ -66,5 +68,25 @@ import org.slf4j.LoggerFactory;
         return new AddRemoveElementsPage();
     }
 
+    /**
+     * Clicks in the link Click Remove Image
+     */
+    public BrokenImagePage ClickOnBrokenImage() {
+        waitForElementToBePresent(ImageBroken_home_Locator);
+        driver.findElement(ImageBroken_home_Locator).click();
+        return new BrokenImagePage();
     }
+
+
+    /**
+     * Clicks in the link Click Challenging DOM
+     */
+    public ChallengingDOMPage ClickOnChallengingDOM() {
+        waitForElementToBePresent(ChalllengDom_Locator);
+        driver.findElement(ChalllengDom_Locator).click();
+        return new ChallengingDOMPage();
+    }
+
+
+}
 
