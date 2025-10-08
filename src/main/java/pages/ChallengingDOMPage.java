@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,14 +14,15 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 
 public class ChallengingDOMPage extends BasePage{
 
     private final Logger logger = LoggerFactory.getLogger(ChallengingDOMPage.class);
 
-    private By foo_Btn_Locator = By.xpath("//div[@class='large-2 columns']//a[contains(@class,'button') and text()='foo']");
-    private By bar_Btn_Locator = By.xpath("//div[@class='large-2 columns']//a[contains(@class,'button alert') and text()='bar']");
-    private By foo2_Btn_Locator = By.xpath("//div[@class='large-2 columns']//a[contains(@class,'button success')]");
+    private By foo_Btn_Locator = By.xpath("//div[@class='large-2 columns']//a[1]");
+    private By bar_Btn_Locator = By.xpath("//div[@class='large-2 columns']//a[2]");
+    private By foo2_Btn_Locator = By.xpath("//div[@class='large-2 columns']//a[3]");
     private By table_Locator = By.xpath("//div[@class='large-10 columns']//table");
     private By canvas_btn_Locator = By.id("canvas");
 
@@ -50,12 +53,17 @@ public class ChallengingDOMPage extends BasePage{
         return true; // they are the same
     }
 
-    public void ClickOnBtnFoo(){
-       WebElement element = driver.findElement(By.id("foo2_Btn_Locator"));
-        element.click();
-    }
+    public void ClickOnBtnFoo() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-}
+        // Wait for the button to be clickable
+        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(foo2_Btn_Locator));
+
+        // Click on the button
+        button.click();
+        logger.info("Clicked on Foo button successfully");
+
+    }}
 
 
 
