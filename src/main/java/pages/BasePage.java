@@ -26,14 +26,17 @@ public class BasePage {
         this.driver = DriverManager.getDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT));
     }
+
     //Finds a web element by locator, waiting for its presence.
     public WebElement findElement(By locator) {
         //Waiting for the element to be present
         waitForElementToBePresent(locator);
         return driver.findElement(locator);
     }
+
     /**
      * Finds a list of web elements by locator, waiting for their presence.
+     *
      * @param locator By locator
      * @return List of WebElements found
      */
@@ -41,34 +44,38 @@ public class BasePage {
         waitForElementToBePresent(locator);
         return driver.findElements(locator);
     }
+
     /**
      * Clicks on a web element found by locator, waiting for its presence.
+     *
      * @param locator By locator
      */
     public void click(By locator) {
         waitForElementToBePresent(locator);
         driver.findElement(locator).click();
     }
+
     /**
      * Scrolls to a web element by locator and clicks it using JavaScript.
+     *
      * @param locator By locator
      */
-    public void scrollIntoViewAndClick(By locator){
+    public void scrollIntoViewAndClick(By locator) {
         waitForElementToBeClickable(locator);
         WebElement element = findElement(locator);
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView()",element);
-        js.executeScript("arguments[0].click()",element);
+        js.executeScript("arguments[0].scrollIntoView()", element);
+        js.executeScript("arguments[0].click()", element);
     }
 
-    public void scrollIntoViewAndClick(WebElement element){
+    public void scrollIntoViewAndClick(WebElement element) {
         waitForElementToBeClickable(element);
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView()",element);
-        js.executeScript("arguments[0].click()",element);
+        js.executeScript("arguments[0].scrollIntoView()", element);
+        js.executeScript("arguments[0].click()", element);
     }
 
-    public void scrollIntoViewAndClickAlert(By locator){
+    public void scrollIntoViewAndClickAlert(By locator) {
         waitForElementToBeClickable(locator);
         WebElement element = findElement(locator);
         System.out.println("Clicking button: " + element.getText()); // ← antes del click
@@ -78,6 +85,7 @@ public class BasePage {
 
     /**
      * Types text into a web element found by locator, clearing it first.
+     *
      * @param locator By locator
      * @param text    Text to type
      */
@@ -89,14 +97,17 @@ public class BasePage {
 
     /**
      * Gets the text of a web element found by locator.
+     *
      * @param locator By locator
      * @return Text of the element
      */
     public String getText(By locator) {
         return driver.findElement(locator).getText();
     }
+
     /**
      * Gets the text of a given web element.
+     *
      * @param element WebElement
      * @return Text of the element
      */
@@ -106,6 +117,7 @@ public class BasePage {
 
     /**
      * Checks if a web element found by locator is displayed.
+     *
      * @param locator By locator
      * @return true if displayed, false otherwise
      */
@@ -119,9 +131,10 @@ public class BasePage {
 
     /**
      * Waits for a web element to be present in the DOM.
+     *
      * @param locator By locator
      */
-    public void waitForElementToBePresent(By locator){
+    public void waitForElementToBePresent(By locator) {
         wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 
@@ -143,17 +156,17 @@ public class BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public void waitForNewWindow(){
-        wait.until((ExpectedCondition <Boolean>)
-                d -> d!=null && d.getWindowHandles().size()>1);
+    public void waitForNewWindow() {
+        wait.until((ExpectedCondition<Boolean>)
+                d -> d != null && d.getWindowHandles().size() > 1);
     }
 
     //Wait for the element go away
     public void waitForElementGoAway(By locator) {
         try {
             wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
-        } catch (Exception e){
-            if( IsDisplayed(locator))
+        } catch (Exception e) {
+            if (IsDisplayed(locator))
                 wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
         }
     }
@@ -179,6 +192,7 @@ public class BasePage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView()", element);
     }
+
     /**
      * Scrolls to a given web element.
      *
@@ -193,36 +207,37 @@ public class BasePage {
     // Method who use JavaScriptExecutor
 
     //Scroll to the bottom of the page
-    public void scrollToBottom(){
+    public void scrollToBottom() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
     }
 
 //Scroll to the bottom of the page
 
-    public void scrollToTop(){
+    public void scrollToTop() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0,0)");
     }
 
-    public void uploadFile(By locator, String filePath){
+    public void uploadFile(By locator, String filePath) {
         WebElement uploadElement = findElement(locator);
         uploadElement.sendKeys(filePath);
     }
 
-    public void switchToNewWindow(String OriginalHandle){
+    public void switchToNewWindow(String OriginalHandle) {
         //Waiting for a new window open
         waitForNewWindow();
         //Saving all windows handles
         Set<String> allWindows = driver.getWindowHandles();
 // iterating through all the Windows handle
-        for (String handle : allWindows){
+        for (String handle : allWindows) {
             System.out.println("Handle" + handle);
             //If handle different the original window handle we switch to that new window
             if (!handle.equals(OriginalHandle))
                 driver.switchTo().window(handle);
         }
     }
+
     // Select a checkbox if not already selected
     public void selectCheckbox(By locator) {
         try {
@@ -237,28 +252,28 @@ public class BasePage {
         }
     }
 
-    public void waitForAlertToBePresent(){
+    public void waitForAlertToBePresent() {
         wait.until(ExpectedConditions.alertIsPresent());
     }
 
     //Method to working with the alerts
 //Selenium have a class alert that permit to interact with the alert
     //Accept the alert
-    public void acceptAlert(){
+    public void acceptAlert() {
         waitForAlertToBePresent();
         Alert alert = driver.switchTo().alert();
         alert.accept();
     }
 
     //Dismiss the alert
-    public void dismissAlert(){
+    public void dismissAlert() {
         waitForAlertToBePresent();
         Alert alert = driver.switchTo().alert();
         alert.dismiss();
     }
 
     //Send text to the alert
-    public void sendKeysToAlert(String msg){
+    public void sendKeysToAlert(String msg) {
         waitForAlertToBePresent();
         Alert alert = driver.switchTo().alert();
         alert.sendKeys(msg);
@@ -266,7 +281,7 @@ public class BasePage {
     }
 
     //To get the text from the alert
-    public String getAlertText(){
+    public String getAlertText() {
         waitForAlertToBePresent();
         Alert alert = driver.switchTo().alert();
         return alert.getText();
@@ -282,16 +297,16 @@ public class BasePage {
         }
     }
 
-    public void triggerAlert (By locator){
+    public void triggerAlert(By locator) {
         scrollIntoViewAndClickAlert(locator);
     }
 
-    public void ClickAcceptAlert(By locator){
+    public void ClickAcceptAlert(By locator) {
         triggerAlert(locator);
         acceptAlert();
     }
 
-    public void ClickDismissAlert(By locator){
+    public void ClickDismissAlert(By locator) {
         triggerAlert(locator);
         dismissAlert();
     }
@@ -299,15 +314,44 @@ public class BasePage {
     public File getCanvasScreenshot(By locator, String name) {
         File screen = null;
         try {
-            WebElement canvas = driver.findElement(locator);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+            // Espera hasta que el elemento esté visible usando el locator dinámico
+            WebElement canvas = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+
+            // Toma la captura del elemento
             File screenshot = canvas.getScreenshotAs(OutputType.FILE);
+
+            // Guarda la imagen con el nombre recibido
             screen = new File(name + ".png");
             FileUtils.copyFile(screenshot, screen);
+
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (TimeoutException e) {
+            System.out.println("El elemento no apareció a tiempo: " + locator);
         }
+
         return screen;
-    }}
+    }
+
+    public boolean MarkCheckbox(By locator) {
+        WebElement checkbox = driver.findElement(locator);
+        if (!checkbox.isSelected()) {
+            checkbox.click();}
+            return checkbox.isSelected();
+        }
+
+    public boolean verifyCheckboxIsUncheckedByDefault(By locator) {
+        WebElement checkboxUncheck = driver.findElement(locator);
+        return !checkboxUncheck.isSelected();
+        }
+
+    public boolean verifyCheckboxIsCheckedByDefault(By locator) {
+        WebElement checkboxCheck = driver.findElement(locator);
+        return checkboxCheck.isSelected();
+    }
+}
 
 
 

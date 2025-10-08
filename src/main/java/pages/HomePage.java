@@ -24,6 +24,7 @@ import org.slf4j.LoggerFactory;
     private By AddRemoveElements_home_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/add_remove_elements/')]");
     private By ImageBroken_home_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/broken_images')]");
     private By ChalllengDom_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/challenging_dom')]");
+    private By CheckBoxPage_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/checkboxes')]");
 
    /**
      * Clicks in the link DropDown Page
@@ -85,6 +86,15 @@ import org.slf4j.LoggerFactory;
         waitForElementToBePresent(ChalllengDom_Locator);
         driver.findElement(ChalllengDom_Locator).click();
         return new ChallengingDOMPage();
+    }
+
+    /**
+     * Clicks in the link Click Checkbox
+     */
+    public CheckboxesPages ClickOnCheckBox() {
+        waitForElementToBePresent(CheckBoxPage_Locator);
+        driver.findElement(CheckBoxPage_Locator).click();
+        return new CheckboxesPages();
     }
 
 
