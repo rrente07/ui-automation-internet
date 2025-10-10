@@ -25,6 +25,7 @@ import org.slf4j.LoggerFactory;
     private By ImageBroken_home_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/broken_images')]");
     private By ChalllengDom_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/challenging_dom')]");
     private By CheckBoxPage_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/checkboxes')]");
+    private By ContextMenuPage_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/context_menu')]");
 
    /**
      * Clicks in the link DropDown Page
@@ -95,6 +96,16 @@ import org.slf4j.LoggerFactory;
         waitForElementToBePresent(CheckBoxPage_Locator);
         driver.findElement(CheckBoxPage_Locator).click();
         return new CheckboxesPages();
+    }
+
+
+    /**
+     * Clicks in the link Click On ContextMenu
+     */
+    public ContextMenuPages ClickOnContextMenu() {
+        waitForElementToBePresent(ContextMenuPage_Locator);
+        driver.findElement(ContextMenuPage_Locator).click();
+        return new ContextMenuPages();
     }
 
 
