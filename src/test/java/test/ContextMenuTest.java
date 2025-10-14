@@ -2,11 +2,11 @@ package test;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Alert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pages.CheckboxesPages;
 import pages.ContextMenuPages;
 import pages.HomePage;
 
@@ -16,12 +16,12 @@ public class ContextMenuTest extends BaseTest{
 
     private static final Logger logger = LoggerFactory.getLogger(ContextMenuTest.class);
     static HomePage homePage;
-    static ContextMenuPages ContextMenuPages;
+    static ContextMenuPages contextMenuPages;
 
 
     @BeforeAll
     static void setUp() {
-        ContextMenuPages = new ContextMenuPages();
+        contextMenuPages = new ContextMenuPages();
         homePage = new HomePage(driver);
     }
 
@@ -33,7 +33,9 @@ public class ContextMenuTest extends BaseTest{
 
 
     @Test
+    @DisplayName("SelectOption")
     public void SelectOptionTest() {
+
         var contextMenuPage = homePage.ClickOnContextMenu();
         contextMenuPage.VerifyContextMenuDisplayed();
         Alert alert = driver.switchTo().alert();
