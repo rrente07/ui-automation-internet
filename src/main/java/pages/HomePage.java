@@ -26,7 +26,7 @@ import org.slf4j.LoggerFactory;
     private By ChalllengDom_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/challenging_dom')]");
     private By CheckBoxPage_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/checkboxes')]");
     private By ContextMenuPage_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/context_menu')]");
-
+    private By DessapearPage_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/disappearing_elements')]");
    /**
      * Clicks in the link DropDown Page
      */
@@ -60,7 +60,6 @@ import org.slf4j.LoggerFactory;
         driver.findElement(jsAlerts_home_Locator).click();
         return new AlertsPage();
     }
-
     /**
      * Clicks in the link Click Add and Remove Elements
      */
@@ -69,7 +68,6 @@ import org.slf4j.LoggerFactory;
         driver.findElement(AddRemoveElements_home_Locator).click();
         return new AddRemoveElementsPage();
     }
-
     /**
      * Clicks in the link Click Remove Image
      */
@@ -78,8 +76,6 @@ import org.slf4j.LoggerFactory;
         driver.findElement(ImageBroken_home_Locator).click();
         return new BrokenImagePage();
     }
-
-
     /**
      * Clicks in the link Click Challenging DOM
      */
@@ -98,7 +94,6 @@ import org.slf4j.LoggerFactory;
         return new CheckboxesPages();
     }
 
-
     /**
      * Clicks in the link Click On ContextMenu
      */
@@ -107,6 +102,16 @@ import org.slf4j.LoggerFactory;
         driver.findElement(ContextMenuPage_Locator).click();
         return new ContextMenuPages();
     }
+    /**
+     * Clicks in the link Click On DisappearingElementsPage
+     */
+    public DisappearingElementsPage DisappearingElements() {
+        waitForElementToBePresent(DessapearPage_Locator);
+        driver.findElement(DessapearPage_Locator).click();
+        return new DisappearingElementsPage();
+    }
+
+
 
 
 }

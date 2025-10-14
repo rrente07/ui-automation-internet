@@ -7,6 +7,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,6 +19,9 @@ import java.util.Set;
 
 //BasePage provides common Selenium WebDriver actions and utilities
 public class BasePage {
+
+    private final Logger logger = LoggerFactory.getLogger(BasePage.class);
+
     WebDriver driver; //declare objet the type Webdriver
     WebDriverWait wait; //declare objet the type wait
     private static final int TIMEOUT = 10; // maximum wait time (10 seconds)
@@ -316,13 +321,13 @@ public class BasePage {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-            // Espera hasta que el elemento esté visible usando el locator dinámico
+            // Wait for the element to be present
             WebElement canvas = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 
-            // Toma la captura del elemento
+            // Capture the element
             File screenshot = canvas.getScreenshotAs(OutputType.FILE);
 
-            // Guarda la imagen con el nombre recibido
+            // Save image with the name
             screen = new File(name + ".png");
             FileUtils.copyFile(screenshot, screen);
 
@@ -350,6 +355,22 @@ public class BasePage {
     public boolean verifyCheckboxIsCheckedByDefault(By locator) {
         WebElement checkboxCheck = driver.findElement(locator);
         return checkboxCheck.isSelected();
+    }
+
+    public boolean clickLinkIfPresent(By locator, String LinkText){
+        if (! driver.findElements(locator).isEmpty()){
+            try {
+                waitForElementToBePresent(locator);
+                driver.findElement(locator).click();
+                logger.info("Click on link '{}'", LinkText);
+                return true;
+            }catch (TimeoutException e){
+                logger.warn("Time waiting for link '{}'", LinkText);
+                return false;
+         }
+        }else
+            logger.warn("Link not present on this page load '{}'", LinkText);
+        return false;
     }
 }
 
