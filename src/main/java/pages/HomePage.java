@@ -27,7 +27,10 @@ import org.slf4j.LoggerFactory;
     private By CheckBoxPage_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/checkboxes')]");
     private By ContextMenuPage_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/context_menu')]");
     private By DessapearPage_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/disappearing_elements')]");
-   /**
+    private By DragAndDrop_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/drag_and_drop')]");
+
+
+    /**
      * Clicks in the link DropDown Page
      */
     public DropdownPage ClickOnDropDown() {
@@ -105,14 +108,18 @@ import org.slf4j.LoggerFactory;
     /**
      * Clicks in the link Click On DisappearingElementsPage
      */
-    public DisappearingElementsPage DisappearingElements() {
+    public DisappearingElementsPage ClickOnDisappearingElements() {
         waitForElementToBePresent(DessapearPage_Locator);
         driver.findElement(DessapearPage_Locator).click();
         return new DisappearingElementsPage();
     }
-
-
-
-
+    /**
+     * Clicks in the link Click On DragAndDropPage
+     */
+    public AddDragAndDropPage ClickOnAddDragAndDrop() {
+        waitForElementToBePresent(DragAndDrop_Locator);
+        driver.findElement(DragAndDrop_Locator).click();
+        return new AddDragAndDropPage();
+    }
 }
 
