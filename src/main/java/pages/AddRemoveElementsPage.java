@@ -19,30 +19,23 @@
         public void clickAddElement(){
             click(addElement_Btn_Locator);
         }
-
         public void clickDeleteElement(){
             click(delete_Btn_Locator);
         }
-
         public boolean isVisibleDeleteBtn(){
             return isElementVisible(delete_Btn_Locator);
-
         }
-
-        public boolean  isHidDeleteBtn(){
+       public boolean  isHidDeleteBtn(){
             return IsDisplayed(delete_Btn_Locator);
         }
-
         public int countDeleteButtons() {
             return driver.findElements(delete_Btn_Locator).size();
         }
-
         public void addMultipleDeleteButtons(int count) {
             for (int i = 0; i < count; i++) {
                 clickAddElement();
                 }
         }
-
         public int removeDeleteButtons(int count) {
             int deleted = 0;
             List<WebElement> buttons = findElements(delete_Btn_Locator);

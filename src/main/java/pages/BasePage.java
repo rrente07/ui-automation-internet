@@ -22,7 +22,7 @@ public class BasePage {
 
     private final Logger logger = LoggerFactory.getLogger(BasePage.class);
 
-    WebDriver driver; //declare objet the type Webdriver
+    static WebDriver driver; //declare objet the type Webdriver
     WebDriverWait wait; //declare objet the type wait
     private static final int TIMEOUT = 10; // maximum wait time (10 seconds)
 

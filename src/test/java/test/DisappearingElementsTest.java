@@ -1,10 +1,8 @@
 package test;
 
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.remote.tracing.opentelemetry.SeleniumSpanExporter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pages.ContextMenuPages;
 import pages.DisappearingElementsPage;
 import pages.HomePage;
 
@@ -30,7 +28,7 @@ static DisappearingElementsPage disappearingElementsPage;
     @DisplayName("VerifyHomeLink")
     public void VerifyHomeLinkTest(){
         //Navigate to Disappearing Element Page
-        disappearingElementsPage = homePage.DisappearingElements();
+        disappearingElementsPage = homePage.ClickOnDisappearingElements();
 
         //Attempt to click the Home us link if it is present
         boolean HomeLinkIsPresent = disappearingElementsPage.clickLinkHomeIfPresent();
@@ -52,7 +50,7 @@ static DisappearingElementsPage disappearingElementsPage;
     @DisplayName("VerifyAboutLink")
     public void VerifyAboutLinkTest(){
         //Navigate to Disappearing Element Page
-        disappearingElementsPage = homePage.DisappearingElements();
+        disappearingElementsPage = homePage.ClickOnDisappearingElements();
 
         //Attempt to click the Contact us link if it is present
         boolean AboutIsPresent = disappearingElementsPage.clickLinkAboutIfPresent();
@@ -73,7 +71,7 @@ static DisappearingElementsPage disappearingElementsPage;
     @DisplayName("VerifyContactUsLink")
     public void VerifyContactUsLinkTest(){
         //Navigate to Disappearing Element Page
-        disappearingElementsPage = homePage.DisappearingElements();
+        disappearingElementsPage = homePage.ClickOnDisappearingElements();
 
         //Attempt to click the Contact us link if it is present
         boolean ContactUsIsPresent = disappearingElementsPage.clickLinkContactUsIfPresent();
@@ -95,7 +93,7 @@ static DisappearingElementsPage disappearingElementsPage;
     @DisplayName("VerifyPortfolio")
     public void VerifyPortfolioLinkTest(){
         //Navigate to Disappearing Element Page
-        disappearingElementsPage = homePage.DisappearingElements();
+        disappearingElementsPage = homePage.ClickOnDisappearingElements();
 
         //Attempt to click the Portfolio link if it is present
         boolean PortfolioIsPresent = disappearingElementsPage.clickLinkPortfolioIfPresent();
@@ -118,7 +116,7 @@ static DisappearingElementsPage disappearingElementsPage;
     @DisplayName("Verify Gallery link if present")
     public void verifyGalleryLinkTest() {
         //Navigate to Disappearing Element Page
-        disappearingElementsPage = homePage.DisappearingElements();
+        disappearingElementsPage = homePage.ClickOnDisappearingElements();
 
         //Attempt to click the Gallery link if it is present
         boolean GalleryIsPresent = disappearingElementsPage.clickLinkGalleryIfPresent();

@@ -14,6 +14,7 @@ public class DisappearingElementsPage extends BasePage{
     private By Portfoliolink_Locator = By.xpath("//div[@class='example']//a[normalize-space(text())='Portfolio']");
     private By Gallerylink_Locator = By.xpath("//div[@class='example']//a[normalize-space(text())='Gallery']");
 
+
     /**
      * Clicks in the link Click On Home Link
      */
