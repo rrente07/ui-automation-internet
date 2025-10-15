@@ -28,7 +28,7 @@ import org.slf4j.LoggerFactory;
     private By ContextMenuPage_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/context_menu')]");
     private By DessapearPage_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/disappearing_elements')]");
     private By DragAndDrop_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/drag_and_drop')]");
-
+    private By DynamicContent_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/dynamic_content')]");
 
     /**
      * Clicks in the link DropDown Page
@@ -120,6 +120,15 @@ import org.slf4j.LoggerFactory;
         waitForElementToBePresent(DragAndDrop_Locator);
         driver.findElement(DragAndDrop_Locator).click();
         return new AddDragAndDropPage();
+    }
+
+    /**
+     * Clicks in the link Click On DynamicContent
+     */
+    public DynamicContentPage ClickOnDynamicContent() {
+        waitForElementToBePresent(DynamicContent_Locator);
+        driver.findElement(DynamicContent_Locator).click();
+        return new DynamicContentPage();
     }
 }
 
