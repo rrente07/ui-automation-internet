@@ -6,6 +6,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pages.DisappearingElementsPage;
 import pages.DropdownPage;
 import pages.HomePage;
 
@@ -21,10 +22,19 @@ public class DropdownTest extends BaseTest{
     static HomePage homePage;
     static DropdownPage dropdownPage;
 
+
     @BeforeAll
     static void setUp() {
+        dropdownPage = new DropdownPage();
         homePage = new HomePage(driver);
     }
+
+    @BeforeEach
+    void setUpEach() {
+        driver.get("https://the-internet.herokuapp.com/");
+        homePage = new HomePage(driver);
+    }
+
 
     @Test
     public void SelectOptionTest(){
@@ -35,7 +45,10 @@ dropDownPage.selectFromDropDown(option1);
 var selectOptions = dropDownPage.getSelectedOption();
 assertEquals(selectOptions.size(), 1, "Incorrect");
 assertTrue(selectOptions.contains(option1), "Option not selected");
+}
 
-    }
+
+
+
 
 }
