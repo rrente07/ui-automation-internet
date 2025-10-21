@@ -3,7 +3,6 @@ package test;
 import org.junit.jupiter.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pages.ChallengingDOMPage;
 import pages.CheckboxesPages;
 import pages.HomePage;
 
@@ -30,7 +29,7 @@ public class CheckboxesTest extends BaseTest{
     @Test
     @DisplayName("Verify Checkboxes")
     public void checkBox1IsChecking() {
-        CheckboxesPages = homePage.ClickOnCheckBox();
+        CheckboxesPages = homePage.clickOnCheckBox();
         CheckboxesPages.checking1();
         boolean check1 = CheckboxesPages.verifyCheckbox1IsCheckedByDefault();
         logger.info("The checkbox1 is checked:" + check1);
@@ -42,7 +41,7 @@ public class CheckboxesTest extends BaseTest{
     @Test
     @DisplayName("Verify Checkboxes")
     public void Checkbox2IsChecking() {
-        CheckboxesPages = homePage.ClickOnCheckBox();
+        CheckboxesPages = homePage.clickOnCheckBox();
         CheckboxesPages.checking2();
         boolean check2 = CheckboxesPages.verifyCheckbox2CheckedByDefault();
         logger.info("The checkbox2 is checked"  + check2);

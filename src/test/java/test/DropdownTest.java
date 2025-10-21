@@ -1,16 +1,10 @@
 package test;
 
-import listeners.ExtentReportExtension;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pages.DisappearingElementsPage;
 import pages.DropdownPage;
 import pages.HomePage;
-
-import javax.swing.text.html.Option;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -38,7 +32,7 @@ public class DropdownTest extends BaseTest{
 
     @Test
     public void SelectOptionTest(){
-var dropDownPage = homePage.ClickOnDropDown();
+var dropDownPage = homePage.clickOnDropDown();
 assertTrue(driver.getCurrentUrl().contains("/dropdown"), "Did not navigate to dropdown page");
 String option1 = "Option 1";
 dropDownPage.selectFromDropDown(option1);

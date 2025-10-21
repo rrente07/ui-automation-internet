@@ -36,8 +36,8 @@ public class ContextMenuTest extends BaseTest{
     @DisplayName("SelectOption")
     public void SelectOptionTest() {
 
-        var contextMenuPage = homePage.ClickOnContextMenu();
-        contextMenuPage.VerifyContextMenuDisplayed();
+        var contextMenuPage = homePage.clickOnContextMenu();
+        contextMenuPage.verifyContextMenuDisplayed();
         Alert alert = driver.switchTo().alert();
         String alertText = homePage.getAlertText();
         assertEquals("You selected a context menu", alertText);

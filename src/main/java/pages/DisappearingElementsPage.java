@@ -18,7 +18,7 @@ public class DisappearingElementsPage extends BasePage{
     /**
      * Clicks in the link Click On Home Link
      */
-    public void ClickHomeLink() {
+    public void clickHomeLink() {
         waitForElementToBePresent(Homepagelink_Locator);
         driver.findElement(Homepagelink_Locator).click();
     }
@@ -26,7 +26,7 @@ public class DisappearingElementsPage extends BasePage{
     /**
      * Clicks in the link Click On About Link
      */
-    public void ClickAboutLink() {
+    public void clickAboutLink() {
         waitForElementToBePresent(Aboutlink_Locator);
         driver.findElement(Aboutlink_Locator).click();
     }
@@ -34,7 +34,7 @@ public class DisappearingElementsPage extends BasePage{
     /**
      * Clicks in the link Click On Contact Us Link
      */
-    public void ClickContactUsLink() {
+    public void clickContactUsLink() {
         waitForElementToBePresent(ContactUslink_Locator);
         driver.findElement(ContactUslink_Locator).click();
     }
@@ -42,7 +42,7 @@ public class DisappearingElementsPage extends BasePage{
     /**
      * Clicks in the link Click On Portfolio Link
      */
-    public void ClickPortfolioLink() {
+    public void clickPortfolioLink() {
         waitForElementToBePresent(Portfoliolink_Locator);
         driver.findElement(Portfoliolink_Locator).click();
     }
@@ -50,7 +50,7 @@ public class DisappearingElementsPage extends BasePage{
     /**
      * Clicks in the link Click On Gallery Link
      */
-    public void ClickGalleryLink() {
+    public void clickGalleryLink() {
         waitForElementToBePresent(Gallerylink_Locator);
         driver.findElement(Gallerylink_Locator).click();
     }

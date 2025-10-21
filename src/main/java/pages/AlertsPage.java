@@ -11,25 +11,25 @@ public By getJsAlertsToPrompt_Btn_Locator = By.xpath("//button[contains(text(),'
 
 
 // Accepts a simple JavaScript alert after waiting for the button to be present
-    public void ClickBtnAlertJS(){
+    public void clickBtnAlertJS(){
         waitForElementToBePresent(getJsAlerts_Btn_Locator);
-        ClickAcceptAlert(getJsAlerts_Btn_Locator);
+        clickAcceptAlert(getJsAlerts_Btn_Locator);
     }
 // Accepts a JS confirmation alert (OK/Cancel type)
-    public void ClickBtnAlertJSConfirm(){
+    public void clickBtnAlertJSConfirm(){
         waitForElementToBePresent(getJsAlertsToConfirm_Btn_Locator);
-        ClickAcceptAlert(getJsAlertsToConfirm_Btn_Locator);
+        clickAcceptAlert(getJsAlertsToConfirm_Btn_Locator);
     }
 
     // Accepts a JS confirmation alert (OK/Cancel type)
-    public void ClickBtnAlertJSPrompt(){
+    public void clickBtnAlertJSPrompt(){
         waitForElementToBePresent(getJsAlertsToPrompt_Btn_Locator);
-        ClickAcceptAlert(getJsAlertsToPrompt_Btn_Locator);
+        clickAcceptAlert(getJsAlertsToPrompt_Btn_Locator);
     }
 
 // Dismisses a JS confirmation alert
-    public void ClickDismissAlertJSConfirm(){
-        ClickDismissAlert(getJsAlertsToConfirm_Btn_Locator);
+    public void clickDismissAlertJSConfirm(){
+        clickDismissAlert(getJsAlertsToConfirm_Btn_Locator);
 
     }
 
@@ -40,9 +40,9 @@ public By getJsAlertsToPrompt_Btn_Locator = By.xpath("//button[contains(text(),'
     }
 
 // Dismisses a JS prompt alert
-    public void ClickDismissAlertJSPrompt(){
+    public void clickDismissAlertJSPrompt(){
         waitForElementToBePresent(getJsAlertsToPrompt_Btn_Locator);
-        ClickDismissAlert(getJsAlertsToPrompt_Btn_Locator);
+        clickDismissAlert(getJsAlertsToPrompt_Btn_Locator);
     }
 
     public String getMessageAlertText(){

@@ -1,17 +1,11 @@
 package test;
 
-import net.bytebuddy.agent.builder.AgentBuilder;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pages.BasePage;
-import pages.BrokenImagePage;
 import pages.ChallengingDOMPage;
 import pages.HomePage;
 
-import javax.print.attribute.standard.MediaSize;
 import java.io.File;
 import java.io.IOException;
 
@@ -39,11 +33,11 @@ public class ChallengingDOMTest extends BaseTest {
     public void getScreenShoot() {
         try {
             // Click on the Challenging DOM link
-            ChallengingDOMPage = homePage.ClickOnChallengingDOM();
+            ChallengingDOMPage = homePage.clickOnChallengingDOM();
 
             // Get the screenshot before
             File before = ChallengingDOMPage.getCanvasScreenshot();
-            ChallengingDOMPage.ClickOnBtnFoo();
+            ChallengingDOMPage.clickOnBtnFoo();
             File after = ChallengingDOMPage.getCanvasScreenshot();
 
             Assertions.assertTrue(before.exists(), "The screenshot 'before' was created");

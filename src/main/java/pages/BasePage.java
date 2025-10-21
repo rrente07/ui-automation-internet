@@ -49,6 +49,15 @@ public class BasePage {
         waitForElementToBePresent(locator);
         return driver.findElements(locator);
     }
+    /**
+      * Finds a list of web elements by locator
+     * */
+
+    public List<WebElement> findElementsNow(By locator) {
+        return driver.findElements(locator);
+    }
+
+
 
     /**
      * Clicks on a web element found by locator, waiting for its presence.
@@ -306,12 +315,12 @@ public class BasePage {
         scrollIntoViewAndClickAlert(locator);
     }
 
-    public void ClickAcceptAlert(By locator) {
+    public void clickAcceptAlert(By locator) {
         triggerAlert(locator);
         acceptAlert();
     }
 
-    public void ClickDismissAlert(By locator) {
+    public void clickDismissAlert(By locator) {
         triggerAlert(locator);
         dismissAlert();
     }
@@ -340,7 +349,9 @@ public class BasePage {
         return screen;
     }
 
-    public boolean MarkCheckbox(By locator) {
+    public boolean markCheckbox(By locator) {
+        waitForElementToBeClickable(locator);
+
         WebElement checkbox = driver.findElement(locator);
         if (!checkbox.isSelected()) {
             checkbox.click();}
@@ -348,11 +359,13 @@ public class BasePage {
         }
 
     public boolean verifyCheckboxIsUncheckedByDefault(By locator) {
+        waitForElementToBePresent(locator);
         WebElement checkboxUncheck = driver.findElement(locator);
         return !checkboxUncheck.isSelected();
         }
 
     public boolean verifyCheckboxIsCheckedByDefault(By locator) {
+        waitForElementToBePresent(locator);
         WebElement checkboxCheck = driver.findElement(locator);
         return checkboxCheck.isSelected();
     }
@@ -361,8 +374,8 @@ public class BasePage {
         if (! driver.findElements(locator).isEmpty()){
             try {
                 waitForElementToBePresent(locator);
-                driver.findElement(locator).click();
-                logger.info("Click on link '{}'", LinkText);
+                scrollIntoViewAndClick(locator);
+                logger.info("Link '{}' was clicked successfully", LinkText);
                 return true;
             }catch (TimeoutException e){
                 logger.warn("Time waiting for link '{}'", LinkText);

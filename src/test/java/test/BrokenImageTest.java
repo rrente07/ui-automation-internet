@@ -6,8 +6,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pages.AddRemoveElementsPage;
-import pages.AlertsPage;
 import pages.BrokenImagePage;
 import pages.HomePage;
 
@@ -37,7 +35,7 @@ public class BrokenImageTest extends BaseTest {
     @Test
     @DisplayName("Validate broken images on the page")
     public void shouldDetectBrokenImages() {
-        brokenImagePage = homePage.ClickOnBrokenImage();
+        brokenImagePage = homePage.clickOnBrokenImage();
         logger.info("Navigated to: {}", driver.getCurrentUrl());
 
         List<String> brokenImages = brokenImagePage.validateBrokenImages();

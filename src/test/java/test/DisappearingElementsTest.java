@@ -28,7 +28,7 @@ static DisappearingElementsPage disappearingElementsPage;
     @DisplayName("VerifyHomeLink")
     public void VerifyHomeLinkTest(){
         //Navigate to Disappearing Element Page
-        disappearingElementsPage = homePage.ClickOnDisappearingElements();
+        disappearingElementsPage = homePage.clickOnDisappearingElements();
 
         //Attempt to click the Home us link if it is present
         boolean HomeLinkIsPresent = disappearingElementsPage.clickLinkHomeIfPresent();
@@ -50,7 +50,7 @@ static DisappearingElementsPage disappearingElementsPage;
     @DisplayName("VerifyAboutLink")
     public void VerifyAboutLinkTest(){
         //Navigate to Disappearing Element Page
-        disappearingElementsPage = homePage.ClickOnDisappearingElements();
+        disappearingElementsPage = homePage.clickOnDisappearingElements();
 
         //Attempt to click the Contact us link if it is present
         boolean AboutIsPresent = disappearingElementsPage.clickLinkAboutIfPresent();
@@ -71,7 +71,7 @@ static DisappearingElementsPage disappearingElementsPage;
     @DisplayName("VerifyContactUsLink")
     public void VerifyContactUsLinkTest(){
         //Navigate to Disappearing Element Page
-        disappearingElementsPage = homePage.ClickOnDisappearingElements();
+        disappearingElementsPage = homePage.clickOnDisappearingElements();
 
         //Attempt to click the Contact us link if it is present
         boolean ContactUsIsPresent = disappearingElementsPage.clickLinkContactUsIfPresent();
@@ -93,7 +93,7 @@ static DisappearingElementsPage disappearingElementsPage;
     @DisplayName("VerifyPortfolio")
     public void VerifyPortfolioLinkTest(){
         //Navigate to Disappearing Element Page
-        disappearingElementsPage = homePage.ClickOnDisappearingElements();
+        disappearingElementsPage = homePage.clickOnDisappearingElements();
 
         //Attempt to click the Portfolio link if it is present
         boolean PortfolioIsPresent = disappearingElementsPage.clickLinkPortfolioIfPresent();
@@ -116,7 +116,7 @@ static DisappearingElementsPage disappearingElementsPage;
     @DisplayName("Verify Gallery link if present")
     public void verifyGalleryLinkTest() {
         //Navigate to Disappearing Element Page
-        disappearingElementsPage = homePage.ClickOnDisappearingElements();
+        disappearingElementsPage = homePage.clickOnDisappearingElements();
 
         //Attempt to click the Gallery link if it is present
         boolean GalleryIsPresent = disappearingElementsPage.clickLinkGalleryIfPresent();

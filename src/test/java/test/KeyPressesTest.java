@@ -1,7 +1,6 @@
 package test;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +23,7 @@ public class KeyPressesTest extends BaseTest {
 
    @Test
     public void testKeyPresses1() {
-        KeyPressesPage keyPressesPage = homePage.ClickKeyPresses(); //
+        KeyPressesPage keyPressesPage = homePage.clickKeyPresses(); //
        String inputText = "K";
         keyPressesPage.insertKeyPressesInput(inputText);
         String caption = keyPressesPage.getKeyPressesText();

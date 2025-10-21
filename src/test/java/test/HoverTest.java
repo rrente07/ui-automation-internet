@@ -24,7 +24,7 @@ public class HoverTest extends BaseTest{
 @Test
 @DisplayName("Verify Hover Over")
     public void testHoverUser1(){
-    var hoverPage = homePage.ClickOnHover();
+    var hoverPage = homePage.clickOnHover();
     var caption = hoverPage.hoverOverFigure(2);
 assertTrue(caption.isCaptionDisplayed(), "Caption not Displayed");
 assertEquals( "name: user2", caption.getTitle(), "Caption title incorrect");
