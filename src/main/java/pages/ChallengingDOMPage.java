@@ -1,9 +1,6 @@
 package pages;
 
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -53,7 +50,7 @@ public class ChallengingDOMPage extends BasePage{
         return true; // they are the same
     }
 
-    public void ClickOnBtnFoo() {
+    public void clickOnBtnFoo() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         // Wait for the button to be clickable

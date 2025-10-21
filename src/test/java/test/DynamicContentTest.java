@@ -34,11 +34,11 @@ public class DynamicContentTest extends BaseTest{
     @DisplayName("Verify DynamicImages")
     public void verifyImageLoading(){
 
-    homePage.ClickOnDynamicContent();
-    List<String> srcBefore = dynamicContentPage.GetSrc();
+    homePage.clickOnDynamicContent();
+    List<String> srcBefore = dynamicContentPage.getSrc();
         System.out.println("Print: " + srcBefore);
     driver.get(driver.getCurrentUrl());
-    List<String> srcAfter = dynamicContentPage.GetSrc();
+    List<String> srcAfter = dynamicContentPage.getSrc();
         System.out.println("Print: " + srcAfter);
     boolean changed = !srcBefore.equals(srcAfter);
 
@@ -52,8 +52,8 @@ public class DynamicContentTest extends BaseTest{
     @Test
     @DisplayName("Verify Content")
     public void verifyContent() {
-homePage.ClickOnDynamicContent();
-int size = dynamicContentPage.GetCountBlock();
+homePage.clickOnDynamicContent();
+int size = dynamicContentPage.getCountBlock();
         System.out.println("The size is: " +size);
 Assertions.assertTrue(size>0,  "No se encontró ninguna fila de contenido" );
     }
@@ -62,9 +62,9 @@ Assertions.assertTrue(size>0,  "No se encontró ninguna fila de contenido" );
     @Test
     @DisplayName("Verify Images Integrity")
 public void verifyImagesIntegrity(){
-        homePage.ClickOnDynamicContent();
+        homePage.clickOnDynamicContent();
         // Obtain the list of src of images using the method
-        List<String> srcList = dynamicContentPage.GetSrc();
+        List<String> srcList = dynamicContentPage.getSrc();
 
         //Go through the list and verify the integrity
         for (String src : srcList){
@@ -82,7 +82,7 @@ public void verifyImagesIntegrity(){
     @Test
     @DisplayName("Verify the integrity of the text")
     public void VerifyTextIntegrity(){
-        homePage.ClickOnDynamicContent();
+        homePage.clickOnDynamicContent();
         //Obtain the list of text
 
         List<String> texts = dynamicContentPage.getTextBlock();

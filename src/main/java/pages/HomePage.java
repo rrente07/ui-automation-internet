@@ -29,11 +29,14 @@ import org.slf4j.LoggerFactory;
     private By DessapearPage_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/disappearing_elements')]");
     private By DragAndDrop_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/drag_and_drop')]");
     private By DynamicContent_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/dynamic_content')]");
+    private By DynamicControl_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/dynamic_controls')]");
+    private By DynamicLoading_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/dynamic_loading')]");
+    private By EntryAd_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/entry_ad')]");
 
     /**
      * Clicks in the link DropDown Page
      */
-    public DropdownPage ClickOnDropDown() {
+    public DropdownPage clickOnDropDown() {
         waitForElementToBePresent(dropdown_home_Locator);
         driver.findElement(dropdown_home_Locator).click();
         return new DropdownPage();
@@ -41,7 +44,7 @@ import org.slf4j.LoggerFactory;
     /**
      * Clicks in the link Hover Page
      */
-    public HoversPage ClickOnHover() {
+    public HoversPage clickOnHover() {
         waitForElementToBePresent(hoverOver_home_Locator);
         driver.findElement(hoverOver_home_Locator).click();
         return new HoversPage();
@@ -49,7 +52,7 @@ import org.slf4j.LoggerFactory;
     /**
      * Clicks in the link KeyPresses
      */
-    public KeyPressesPage ClickKeyPresses() {
+    public KeyPressesPage clickKeyPresses() {
         waitForElementToBePresent(key_presses_home_Locator);
         driver.findElement(key_presses_home_Locator).click();
         System.out.println("Current URL: " + driver.getCurrentUrl());
@@ -58,7 +61,7 @@ import org.slf4j.LoggerFactory;
     /**
      * Clicks in the link AlertsJS
      */
-    public AlertsPage ClickOnAlertsJS() {
+    public AlertsPage clickOnAlertsJS() {
         waitForElementToBePresent(jsAlerts_home_Locator);
         driver.findElement(jsAlerts_home_Locator).click();
         return new AlertsPage();
@@ -66,7 +69,7 @@ import org.slf4j.LoggerFactory;
     /**
      * Clicks in the link Click Add and Remove Elements
      */
-    public AddRemoveElementsPage ClickOnAddRemoveElements() {
+    public AddRemoveElementsPage clickOnAddRemoveElements() {
         waitForElementToBePresent(AddRemoveElements_home_Locator);
         driver.findElement(AddRemoveElements_home_Locator).click();
         return new AddRemoveElementsPage();
@@ -74,7 +77,7 @@ import org.slf4j.LoggerFactory;
     /**
      * Clicks in the link Click Remove Image
      */
-    public BrokenImagePage ClickOnBrokenImage() {
+    public BrokenImagePage clickOnBrokenImage() {
         waitForElementToBePresent(ImageBroken_home_Locator);
         driver.findElement(ImageBroken_home_Locator).click();
         return new BrokenImagePage();
@@ -82,7 +85,7 @@ import org.slf4j.LoggerFactory;
     /**
      * Clicks in the link Click Challenging DOM
      */
-    public ChallengingDOMPage ClickOnChallengingDOM() {
+    public ChallengingDOMPage clickOnChallengingDOM() {
         waitForElementToBePresent(ChalllengDom_Locator);
         driver.findElement(ChalllengDom_Locator).click();
         return new ChallengingDOMPage();
@@ -91,7 +94,7 @@ import org.slf4j.LoggerFactory;
     /**
      * Clicks in the link Click Checkbox
      */
-    public CheckboxesPages ClickOnCheckBox() {
+    public CheckboxesPages clickOnCheckBox() {
         waitForElementToBePresent(CheckBoxPage_Locator);
         driver.findElement(CheckBoxPage_Locator).click();
         return new CheckboxesPages();
@@ -100,7 +103,7 @@ import org.slf4j.LoggerFactory;
     /**
      * Clicks in the link Click On ContextMenu
      */
-    public ContextMenuPages ClickOnContextMenu() {
+    public ContextMenuPages clickOnContextMenu() {
         waitForElementToBePresent(ContextMenuPage_Locator);
         driver.findElement(ContextMenuPage_Locator).click();
         return new ContextMenuPages();
@@ -108,7 +111,7 @@ import org.slf4j.LoggerFactory;
     /**
      * Clicks in the link Click On DisappearingElementsPage
      */
-    public DisappearingElementsPage ClickOnDisappearingElements() {
+    public DisappearingElementsPage clickOnDisappearingElements() {
         waitForElementToBePresent(DessapearPage_Locator);
         driver.findElement(DessapearPage_Locator).click();
         return new DisappearingElementsPage();
@@ -116,7 +119,7 @@ import org.slf4j.LoggerFactory;
     /**
      * Clicks in the link Click On DragAndDropPage
      */
-    public AddDragAndDropPage ClickOnAddDragAndDrop() {
+    public AddDragAndDropPage clickOnAddDragAndDrop() {
         waitForElementToBePresent(DragAndDrop_Locator);
         driver.findElement(DragAndDrop_Locator).click();
         return new AddDragAndDropPage();
@@ -125,10 +128,41 @@ import org.slf4j.LoggerFactory;
     /**
      * Clicks in the link Click On DynamicContent
      */
-    public DynamicContentPage ClickOnDynamicContent() {
+    public DynamicContentPage clickOnDynamicContent() {
         waitForElementToBePresent(DynamicContent_Locator);
         driver.findElement(DynamicContent_Locator).click();
         return new DynamicContentPage();
     }
+
+
+    /**
+     * Clicks in the link Click On DynamicControl
+     */
+    public DynamicControlPage clickOnDynamicControl() {
+        waitForElementToBePresent(DynamicControl_Locator);
+        driver.findElement(DynamicControl_Locator).click();
+        return new DynamicControlPage();
+    }
+
+
+    /**
+     * Clicks in the link Click On DynamicLoading
+     */
+    public DynamicLoadingPage clickOnDynamicLoading() {
+        waitForElementToBePresent(DynamicLoading_Locator);
+        driver.findElement(DynamicLoading_Locator).click();
+        return new DynamicLoadingPage();
+    }
+
+
+    /**
+     * Clicks in the link Click On Entry Ad
+     */
+    public Entry_AdPage clickOnEntryAd() {
+        waitForElementToBePresent(EntryAd_Locator);
+        driver.findElement(EntryAd_Locator).click();
+        return new Entry_AdPage();
+    }
+
 }
 

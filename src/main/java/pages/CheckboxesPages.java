@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,11 +30,11 @@ private By secondCheckbox_Locator = By.xpath("//form//input[normalize-space(foll
     }
 
     public boolean checking1(){
-       return MarkCheckbox(firstCheckbox_Locator);
+       return markCheckbox(firstCheckbox_Locator);
     }
 
     public boolean checking2(){
-        return MarkCheckbox(secondCheckbox_Locator);
+        return markCheckbox(secondCheckbox_Locator);
     }
 }
 

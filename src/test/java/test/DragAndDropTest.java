@@ -37,7 +37,7 @@ public class DragAndDropTest extends BaseTest{
     public void VerifyHomeLinkTest(){
 
         //Navigate to DragAndDrop Page
-        addDragAndDropPage = homePage.ClickOnAddDragAndDrop();
+        addDragAndDropPage = homePage.clickOnAddDragAndDrop();
 
         //Attempt to click the DragAndDropColumnA link if it is present
         WebElement DragDropColumnA = addDragAndDropPage.findElementDragDropColumnA();

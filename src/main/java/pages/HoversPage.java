@@ -14,19 +14,19 @@ public class HoversPage extends BasePage {
     private By figureBox = By.className("figure");
     private By boxCaption = By.className("figcaption");
 
-    public FigureCaption hoverOverFigure (int index){
+    public figureCaption hoverOverFigure (int index){
         WebElement figure = driver.findElements(figureBox).get(index-1);
         Actions actions = new Actions(driver);
         actions.moveToElement(figure).perform();
-return new FigureCaption(figure.findElement(boxCaption));
+return new figureCaption(figure.findElement(boxCaption));
         }
 
-        public class FigureCaption{
+        public class figureCaption {
             private WebElement caption;
             private By header = By.tagName("h5");
             private By link = By.tagName("a");
 
-            public FigureCaption (WebElement caption){
+            public figureCaption(WebElement caption){
                 this.caption = caption;
         }
 

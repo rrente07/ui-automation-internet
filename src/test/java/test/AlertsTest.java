@@ -1,6 +1,5 @@
     package test;
 
-    import lombok.extern.java.Log;
     import org.junit.jupiter.api.*;
     import org.slf4j.Logger;
     import org.slf4j.LoggerFactory;
@@ -31,10 +30,10 @@
         @Test
         @DisplayName("Verify that we click on the button JavaScript Alerts and display Click for JS Alert")
         public void testAcceptAlert(){
-                alertsPage = homePage.ClickOnAlertsJS();
+                alertsPage = homePage.clickOnAlertsJS();
                 logger.info("Current URL: " + driver.getCurrentUrl());
                 logger.info("Trying to accept alert...");
-                alertsPage.ClickBtnAlertJS(); // that include wait and acceptation
+                alertsPage.clickBtnAlertJS(); // that include wait and acceptation
             boolean isPresent = alertsPage.isElementVisibleAlert();
             Assertions.assertTrue(isPresent, "Result message not visible");
             String alertText = alertsPage.getMessageAlertText();
@@ -45,10 +44,10 @@
         @Test
         @DisplayName("Verify that we click on the button JavaScript Alerts and display Click for JS Confirm")
         public void testAcceptAlertJSConfirm(){
-            alertsPage = homePage.ClickOnAlertsJS();
+            alertsPage = homePage.clickOnAlertsJS();
             logger.info("Current URL: " + driver.getCurrentUrl());
             logger.info("Trying to accept alert to Confirm...");
-            alertsPage.ClickBtnAlertJSConfirm(); // ya incluye espera y aceptación
+            alertsPage.clickBtnAlertJSConfirm(); // ya incluye espera y aceptación
             boolean isPresent = alertsPage.isElementVisibleAlert();
             Assertions.assertTrue(isPresent, "Result message not visible");
             String alertText = alertsPage.getMessageAlertText();
@@ -59,10 +58,10 @@
         @Test
         @DisplayName("Verify that we click on the button JavaScript Alerts and dismiss Click for JS Confirm")
         public void testDismissAlert(){
-            alertsPage = homePage.ClickOnAlertsJS();
+            alertsPage = homePage.clickOnAlertsJS();
             logger.info("Current URL: " + driver.getCurrentUrl());
             logger.info("Trying to accept alert to Confirm...");
-            alertsPage.ClickDismissAlertJSConfirm(); // ya incluye espera y aceptación
+            alertsPage.clickDismissAlertJSConfirm(); // ya incluye espera y aceptación
             boolean isPresent = alertsPage.isElementVisibleAlert();
             Assertions.assertTrue(isPresent, "Result message not visible");
             String alertText = alertsPage.getMessageAlertText();
@@ -76,7 +75,7 @@
         @DisplayName("Verify that we click on the button JavaScript Alerts and display Click for JS Prompt")
         public void testAcceptAlertPrompt()
         {
-            alertsPage = homePage.ClickOnAlertsJS();
+            alertsPage = homePage.clickOnAlertsJS();
             logger.info("Current URL: " + driver.getCurrentUrl());
             logger.info("Trying to Click for JS Prompt...");
 

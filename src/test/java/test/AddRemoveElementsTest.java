@@ -5,13 +5,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.AddRemoveElementsPage;
 import pages.HomePage;
-
-import java.util.List;
 
 public class AddRemoveElementsTest extends BaseTest{
 
@@ -28,7 +25,7 @@ static AddRemoveElementsPage addRemoveElementsPage;
 
 @Test
     public void testAddElement(){
-    addRemoveElementsPage = homePage.ClickOnAddRemoveElements();
+    addRemoveElementsPage = homePage.clickOnAddRemoveElements();
     logger.info("Current URL: " + driver.getCurrentUrl());
     logger.info("Trying to click on the button...");
     addRemoveElementsPage.clickAddElement();
@@ -40,7 +37,7 @@ static AddRemoveElementsPage addRemoveElementsPage;
 
     @Test
     public void testAddMultipleElements(){
-        addRemoveElementsPage = homePage.ClickOnAddRemoveElements();
+        addRemoveElementsPage = homePage.clickOnAddRemoveElements();
         logger.info("Current URL: " + driver.getCurrentUrl());
         addRemoveElementsPage.addMultipleDeleteButtons(5);
         int beforeDelete = addRemoveElementsPage.countDeleteButtons();
@@ -50,7 +47,7 @@ static AddRemoveElementsPage addRemoveElementsPage;
     @ParameterizedTest
     @ValueSource(ints = {1, 3, 5, 7}) // valores dinámicos para probar
     public void testRemoveElement(int ints){
-        addRemoveElementsPage = homePage.ClickOnAddRemoveElements();
+        addRemoveElementsPage = homePage.clickOnAddRemoveElements();
         logger.info("Current URL: " + driver.getCurrentUrl());
 
         addRemoveElementsPage.addMultipleDeleteButtons(ints);

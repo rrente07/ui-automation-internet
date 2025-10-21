@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,7 @@ private By imageAvatar_Locator = By.xpath("//img[contains(@src, 'Avatar')]");
 private By textblock_Locator =  By.xpath("//div[@id='content']//div[@class='large-10 columns']");
 
     //Returns the list of URLs of the images found
-public  List<String> GetSrc() {
+public  List<String> getSrc() {
    List<WebElement> imagesBefore = driver.findElements(imageAvatar_Locator);
    List<String> srcList = new ArrayList<>();
    for (WebElement img : imagesBefore) {
@@ -27,7 +26,7 @@ public  List<String> GetSrc() {
 }
 
 //Returns the text of the blocks
-public int GetCountBlock(){
+public int getCountBlock(){
     List<WebElement> blockCount = driver.findElements(textblock_Locator);
     return blockCount.size();
 }
