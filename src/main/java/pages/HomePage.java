@@ -32,6 +32,8 @@ import org.slf4j.LoggerFactory;
     private By DynamicControl_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/dynamic_controls')]");
     private By DynamicLoading_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/dynamic_loading')]");
     private By EntryAd_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/entry_ad')]");
+    private By ExitIntent_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/exit_intent')]");
+    private By fileDownload_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/download')]");
 
     /**
      * Clicks in the link DropDown Page
@@ -163,6 +165,27 @@ import org.slf4j.LoggerFactory;
         driver.findElement(EntryAd_Locator).click();
         return new Entry_AdPage();
     }
+
+
+    /**
+     * Clicks in the link Click On Exit Intent
+     */
+    public ExitIntentPage clickOnExitIntent() {
+        waitForElementToBePresent(ExitIntent_Locator);
+        driver.findElement(ExitIntent_Locator).click();
+        return new ExitIntentPage();
+    }
+
+    /**
+     * Clicks in the link Click On Download
+     */
+    public FileDownloadPage clickOnDownload() {
+        waitForElementToBePresent(fileDownload_Locator);
+        driver.findElement(fileDownload_Locator).click();
+        return new FileDownloadPage();
+    }
+
+
 
 }
 

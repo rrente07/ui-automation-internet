@@ -57,8 +57,6 @@ public class BasePage {
         return driver.findElements(locator);
     }
 
-
-
     /**
      * Clicks on a web element found by locator, waiting for its presence.
      *
@@ -383,6 +381,26 @@ public class BasePage {
          }
         }else
             logger.warn("Link not present on this page load '{}'", LinkText);
+        return false;
+    }
+
+
+    public void clickOnDownloadFile(By locator){
+        waitForElementToBePresent(locator);
+        waitForElementToBeClickable(locator);
+        findElement(locator).click();
+    }
+
+    public boolean isFileDownloaded(String downloadPath, String fileName) {
+        File dir = new File(downloadPath);
+        File[] dirContents = dir.listFiles();
+        if (dirContents != null) {
+            for (File file : dirContents) {
+                if (file.getName().equals(fileName)) {
+                    return true; // the file was downloading
+                }
+            }
+        }
         return false;
     }
 }
