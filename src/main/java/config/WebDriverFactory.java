@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 public class WebDriverFactory{
@@ -21,7 +22,10 @@ public class WebDriverFactory{
 
             default:
                 ChromeOptions options = new ChromeOptions();
-
+                File downloadDir = new File(Configuration.DOWNLOAD_PATH);
+                if (!downloadDir.exists()) {
+                    downloadDir.mkdirs();
+                }
                 Map<String,Object> prefs = new HashMap<>();
                 prefs.put("download.default_directory", Configuration.DOWNLOAD_PATH);
                 prefs.put("download.prompt_for_download",false);

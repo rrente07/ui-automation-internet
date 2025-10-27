@@ -3,17 +3,12 @@ package utils;
 import org.openqa.selenium.WebElement;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import org.openqa.selenium.WebElement;
-
-import java.io.File;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
-
-    public class Utility {
+   public class Utility {
 
         public static void printElementInfo(String name, WebElement element) {
             String marker = "------------------------------";
@@ -38,29 +33,38 @@ import java.time.format.DateTimeFormatter;
             //Keeping only numbers and dots. Replacing the rest with space
             String cleanedPrice = rawPriceText.replaceAll("[^0-9.]"," ").trim();
 
+            cleanedPrice = cleanedPrice.replace(",", ".");
+            try{
+                return Double.parseDouble(cleanedPrice);
+            }   catch (NumberFormatException e){
             //Taking the first number
-            String firstNumber = cleanedPrice.split("\\s+")[0];
-            System.out.println("firstNumber: "+firstNumber);
-            return Double.valueOf(firstNumber);
-        }
+                 System.out.println("Error message: "+ e.getMessage());
+            return 0.0;
+        }}
 
-        public static void clearDownloadFolder(String downloadPath){
+       public static void clearDownloadFolder(String downloadPath) {
+           try {
+               File folder = new File(downloadPath);
 
-            File folder = new File(downloadPath);
-            File[] files = folder.listFiles();
+               //  Crear la carpeta si no existe
+               if (!folder.exists()) {
+                   folder.mkdirs();
+                   System.out.println("Carpeta creada: " + downloadPath);
+                   return; // como estaba vacía, no hay archivos que borrar
+               }
 
-            if(files!=null){
-                for (File file : files){
-                    if(file.isFile()){
-                        boolean deleted = file.delete();
-                        if(!deleted){
-                            System.out.println("File couldn't be deleted:"+file.getName());
-                        }
-                    }
-                }
-            }
+               //  Borrar todos los archivos dentro de la carpeta
+               Files.walk(folder.toPath())
+                       .map(Path::toFile)
+                       .filter(File::isFile)
+                       .forEach(File::delete);
 
-        }
+               System.out.println("Carpeta limpiada: " + downloadPath);
+
+           } catch (Exception e) {
+               System.out.println("Error clearing download folder: " + e.getMessage());
+           }
+       }
 
         public static boolean waitForNewFile(File folder, int timeoutInSeconds, int originalFileCount) {
 
