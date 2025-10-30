@@ -30,7 +30,6 @@ public class FileDownloadPage extends BasePage{
         clickOnDownloadFile(file3_Locator);
     }
 
-
     public boolean isFileDownloaded1() {
          return isFileDownloaded(DOWNLOAD_PATH, "ghost2.jpg");
     }
