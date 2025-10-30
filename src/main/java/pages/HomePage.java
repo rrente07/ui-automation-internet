@@ -34,6 +34,7 @@ import org.slf4j.LoggerFactory;
     private By EntryAd_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/entry_ad')]");
     private By ExitIntent_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/exit_intent')]");
     private By fileDownload_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/download')]");
+    private By fileAuthenticator_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/login')]");
 
     /**
      * Clicks in the link DropDown Page
@@ -183,6 +184,15 @@ import org.slf4j.LoggerFactory;
         waitForElementToBePresent(fileDownload_Locator);
         driver.findElement(fileDownload_Locator).click();
         return new FileDownloadPage();
+    }
+
+    /**
+     * Clicks in the link Click On Form Authentication
+     */
+    public AuthenticationPage clickOnAuthentication() {
+        waitForElementToBePresent(fileAuthenticator_Locator);
+        driver.findElement(fileAuthenticator_Locator).click();
+        return new AuthenticationPage();
     }
 
 

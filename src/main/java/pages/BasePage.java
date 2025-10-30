@@ -403,6 +403,11 @@ public class BasePage {
         }
         return false;
     }
+
+    public String getTextValue(By locator){
+        return findElement(locator).getAttribute("value");
+    }
+
 }
 
 

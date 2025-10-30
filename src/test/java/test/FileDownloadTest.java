@@ -60,21 +60,21 @@ public class FileDownloadTest extends BaseTest{
 
         assertFalse(links.isEmpty(), "No se encontraron enlaces de descarga");
 
-        // Descargar todos los archivos de la página
+        // Download al the pages
         for (WebElement link : links) {
             String fileName = link.getText().trim();
             Path downloadedFile = Paths.get(Configuration.DOWNLOAD_PATH, fileName);
 
 
-            // Eliminar archivo previo si existía
+            // Delete the files
             if (Files.exists(downloadedFile)) {
                 Files.delete(downloadedFile);
             }
 
-            // Hacer clic para descargar
+            // Click to download
             link.click();
 
-            // Esperar a que se descargue
+            // Wait for download
             boolean downloaded = fileDownloadPage.waitForDownload(downloadedFile, 15);
             if (downloaded){
                 count ++;
