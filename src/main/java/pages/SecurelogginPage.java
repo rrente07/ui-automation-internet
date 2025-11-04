@@ -32,6 +32,15 @@ public class SecurelogginPage extends BasePage{
 
     }
 
+    public void clickOnBtnLogout(){
+        waitForElementToBeClickable(logoutBtn_Locator);
+        click(logoutBtn_Locator);
+
+    }
+
+
+
+
 
 
 }
