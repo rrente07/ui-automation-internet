@@ -35,6 +35,8 @@ import org.slf4j.LoggerFactory;
     private By ExitIntent_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/exit_intent')]");
     private By fileDownload_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/download')]");
     private By fileAuthenticator_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/login')]");
+    private By fileFrame_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/nested_frames')]");
+    private By geolocation_Locator = By.xpath("//div[@id='content']//a[contains(@href,'/geolocation')]");
 
     /**
      * Clicks in the link DropDown Page
@@ -194,6 +196,31 @@ import org.slf4j.LoggerFactory;
         driver.findElement(fileAuthenticator_Locator).click();
         return new AuthenticationPage();
     }
+
+
+    /**
+     * Clicks in the link Click On Frame Link
+     */
+    public FramesPage clickOnFrameLink() {
+        waitForElementToBePresent(fileFrame_Locator);
+        driver.findElement(fileFrame_Locator).click();
+        return new FramesPage();
+
+ }
+
+    /**
+     * Clicks in the link Click On Geolocation Link
+     */
+    public GeoLocationPage clickOnGeolocation() {
+        waitForElementToBePresent(geolocation_Locator);
+        driver.findElement(geolocation_Locator).click();
+        return new GeoLocationPage();
+
+    }
+
+
+
+
 
 
 

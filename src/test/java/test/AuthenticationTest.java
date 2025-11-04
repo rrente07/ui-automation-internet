@@ -3,11 +3,16 @@ package test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.AuthenticationPage;
 import pages.HomePage;
 import pages.SecurelogginPage;
+
+import java.time.Duration;
 
 public class AuthenticationTest extends BaseTest {
 
@@ -67,6 +72,31 @@ public class AuthenticationTest extends BaseTest {
     }
 
 
+    @Test
+    public void verifyLogoutBtnIsVisibleTest() {
+        var AuthenticationPage = homePage.clickOnAuthentication();
+        authenticationPage.typePassword();
+        authenticationPage.typeUsername();
+        authenticationPage.clickOnLoginBtn();
+        securelogginPage.clickOnBtnLogout();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        String currentUrl = driver.getCurrentUrl();
+        logger.info("The current URL is:" + currentUrl);
+        String expectedUrl = "https://the-internet.herokuapp.com/login";
+        Assertions.assertEquals(expectedUrl, currentUrl, "The button do not logout");
+
+    }
 
 
-}
+
+
+
+
+    }
+
+
+
+
+
+
+

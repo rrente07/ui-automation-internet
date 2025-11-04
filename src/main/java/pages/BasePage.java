@@ -408,6 +408,35 @@ public class BasePage {
         return findElement(locator).getAttribute("value");
     }
 
+
+
+    /**
+     * Get text from the Left Frame
+     **/
+    public String getFrameText(By locatorTop, By locatorSecond) {
+
+        // Locate and switch to Top frame
+        WebElement frameTop = driver.findElement(locatorTop);
+        driver.switchTo().frame(frameTop);
+
+        // Locate and switch to Left frame
+        WebElement frameLeft = driver.findElement(locatorSecond);
+        driver.switchTo().frame(frameLeft);
+
+        // Get text
+        String texto = driver.findElement(By.tagName("body")).getText();
+
+        // Return to main content
+        driver.switchTo().defaultContent();
+
+        return texto;
+    }
+
+
+
+
+
+
 }
 
 
